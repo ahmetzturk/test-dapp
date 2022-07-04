@@ -1,9 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
-/*
-Metamask cüzdan private key buraya girilmeli
-*/
-const privateKey = "d19e4870af737a3dadc3c49738a2fd91dc3b2087c1940f2dfa0d89dcb360520e";
 
+// Import and configure dotenv
+require("dotenv").config();
 
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -42,8 +40,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
       /*
       Rinkeby API adresi buraya girilmeli
       */
-      url: "https://eth-rinkeby.alchemyapi.io/v2/mBQnkxXIGQM1JI3Td3L-C8X0Tk4LXGU_",
-      accounts: [privateKey]
+      url: process.env.STAGING_ALCHEMY_KEY,
+      accounts: [process.env.PRIVATE_KEY]
     },
     binance: {
       /*
